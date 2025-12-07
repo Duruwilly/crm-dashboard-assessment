@@ -69,3 +69,7 @@ The important folders are located in the `app` directory. These include:
 ### Decisions
 
 This assessment doesn't really require the need for a global state managememt and as such, the requirement for Context Api wasn't used. However, a boilerplate for it was written but it is not used in anywhere.
+
+### Instructions
+
+To logout, you can simply click on the arrow icon beside the user profile information at the bottom sidebar of both the mobile and the desktop.
