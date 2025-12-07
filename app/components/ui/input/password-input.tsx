@@ -1,6 +1,5 @@
-import React, { useState, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import Label from "../label";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 interface InputPasswordProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -11,7 +10,6 @@ interface InputPasswordProps extends React.InputHTMLAttributes<HTMLInputElement>
 
 const InputPassword = forwardRef<HTMLInputElement, InputPasswordProps>(
   ({ label, postIcon, error, ...rest }, ref) => {
-    const [show, setShow] = useState(false);
 
     return (
       <div className="w-full relative">
@@ -24,21 +22,10 @@ const InputPassword = forwardRef<HTMLInputElement, InputPasswordProps>(
             focus-within:shadow-[0_0_4px_4px_rgba(127,17,224,0.16)] bg-[#FAFAFC] px-4`}
         >
           <input
-            type={show ? "text" : "password"}
             ref={ref}
             {...rest}
             className={`bg-transparent text-base placeholder:text-[#B5B7C0] outline-none flex-1`}
           />
-          <div
-            className="shrink-0 cursor-pointer"
-            onClick={() => setShow(!show)}
-          >
-            {!show ? (
-              <AiFillEyeInvisible size={24} className="text-gray-500" />
-            ) : (
-              <AiFillEye size={24} className="text-gray-500" />
-            )}
-          </div>
         </div>
 
         {error && <span className="text-error text-sm">{error}</span>}
