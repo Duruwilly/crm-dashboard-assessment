@@ -12,8 +12,6 @@ import Avatar5 from "~/assets/images/avatar5.png";
 import { useBreakpoint } from "~/lib/hooks/use-break-point";
 
 const Stats = () => {
-  const { width } = useBreakpoint();
-
   return (
     <Card className="flex flex-wrap gap-10 justify-between px-6 min-[1077px]:px-10 py-6">
       <div className="flex items-center justify-center gap-5">

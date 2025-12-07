@@ -10,6 +10,7 @@ import Button from "~/components/ui/button";
 import Input from "~/components/ui/input/text-input";
 import InputPassword from "~/components/ui/input/password-input";
 import type { Route } from "./+types";
+import { useState } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -20,6 +21,7 @@ export function meta({}: Route.MetaArgs) {
 
 const Login = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -32,8 +34,12 @@ const Login = () => {
   });
 
   const onSubmit: SubmitHandler<TLogin> = async (data) => {
+    setIsLoading(true);
     LocalStorageHelpers.set(LocalStorageKeys.user_data, { email: data.email });
-    navigate(APP_ROUTES.PRODUCT);
+    setTimeout(() => {
+      navigate(APP_ROUTES.PRODUCT);
+      setIsLoading(false);
+    }, 1000);
   };
 
   return (
@@ -59,7 +65,7 @@ const Login = () => {
             error={errors.password?.message}
           />
         </div>
-        <Button text="Sign in" />
+        <Button text="Sign in" isLoading={isLoading} disabled={isLoading} />
       </form>
     </div>
   );
