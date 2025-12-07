@@ -9,12 +9,15 @@ import Avatar2 from "~/assets/images/avatar2.png";
 import Avatar3 from "~/assets/images/avatar3.png";
 import Avatar4 from "~/assets/images/avatar4.png";
 import Avatar5 from "~/assets/images/avatar5.png";
+import { useBreakpoint } from "~/lib/hooks/use-break-point";
 
 const Stats = () => {
+  const { width } = useBreakpoint();
+
   return (
     <Card className="flex flex-wrap gap-10 justify-between px-6 min-[1077px]:px-10 py-6">
       <div className="flex items-center justify-center gap-5">
-        <IconContainer Icon={<UsersIcon />} />
+        <IconContainer Icon={UsersIcon} />
 
         <div>
           <Paragraph color="#ACACAC">Total Customers</Paragraph>
@@ -41,7 +44,7 @@ const Stats = () => {
       <div className="w-px bg-[#F0F0F0] mx-6 hidden min-[1077px]:block" />
 
       <div className="flex items-center gap-5 justify-center">
-        <IconContainer Icon={<ProfileTick />} />
+        <IconContainer Icon={ProfileTick} />
 
         <div>
           <Paragraph color="#ACACAC">Members</Paragraph>
@@ -70,7 +73,7 @@ const Stats = () => {
       <div className="w-px bg-[#F0F0F0] mx-6 hidden min-[1077px]:block" />
 
       <div className="flex items-center gap-5 justify-center">
-        <IconContainer Icon={<Monitor />} />
+        <IconContainer Icon={Monitor} />
 
         <div>
           <Paragraph color="#ACACAC">Active Now</Paragraph>
@@ -87,7 +90,7 @@ const Stats = () => {
               <img
                 key={idx}
                 src={src}
-                className={`h-[26px] w-[26px] rounded-full border-[1.3px] border-white ${idx > 0 ? "-ml-2" : ""}`}
+                className={`size-6 md:size-[26px] rounded-full border-[1.3px] border-white ${idx > 0 ? "-ml-2" : ""}`}
               />
             ))}
           </div>
@@ -99,8 +102,16 @@ const Stats = () => {
 
 export default Stats;
 
-const IconContainer = ({ Icon }: { Icon: React.ReactNode }) => (
-  <div className="size-[84px] rounded-full bg-linear-to-b from-[#D3FFE7] to-[#EFFFF6] flex items-center justify-center shrink-0">
-    {Icon}
-  </div>
-);
+const IconContainer = ({
+  Icon,
+}: {
+  Icon: (props: IconType) => React.JSX.Element;
+}) => {
+  const { width } = useBreakpoint();
+
+  return (
+    <div className="size-[60px] md:size-[84px] rounded-full bg-linear-to-b from-[#D3FFE7] to-[#EFFFF6] flex items-center justify-center shrink-0">
+      <Icon height={width >= 768 ? 42 : 24} width={width >= 768 ? 42 : 24} />
+    </div>
+  );
+};

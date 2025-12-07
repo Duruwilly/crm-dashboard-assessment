@@ -1,7 +1,7 @@
 const UsersIcon = (props: IconType) => (
   <svg
-    width={42}
-    height={42}
+    width={props.width || 42}
+    height={props.height || 42}
     viewBox="0 0 42 42"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
