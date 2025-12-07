@@ -20,7 +20,7 @@ const Stats = () => {
           <Paragraph color="#ACACAC">Total Customers</Paragraph>
           <Paragraph
             variant="h2"
-            className="font-semibold font-poppins-semibold text-[32px]"
+            className="font-semibold font-poppins-semibold text-xl md:text-[32px]"
             color="#333333"
           >
             5,423
@@ -47,7 +47,7 @@ const Stats = () => {
           <Paragraph color="#ACACAC">Members</Paragraph>
           <Paragraph
             variant="h2"
-            className="font-semibold font-poppins-semibold text-[32px]"
+            className="font-semibold font-poppins-semibold text-xl md:text-[32px]"
             color="#333333"
           >
             1,893
@@ -76,7 +76,7 @@ const Stats = () => {
           <Paragraph color="#ACACAC">Active Now</Paragraph>
           <Paragraph
             variant="h2"
-            className="font-semibold font-poppins-semibold text-[32px]"
+            className="font-semibold font-poppins-semibold text-xl md:text-[32px]"
             color="#333333"
           >
             189
