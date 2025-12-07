@@ -45,7 +45,7 @@ const Login = () => {
   return (
     <div className="mt-14 md:mt-20 flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <Paragraph className="font-semibold text-[24px]">Log in</Paragraph>
+        <Paragraph className="font-semibold font-poppins-semibold text-[24px]">Log in</Paragraph>
         <Paragraph className="text-base" color="#666666">
           Welcome back! Please enter your details.
         </Paragraph>
