@@ -29,10 +29,6 @@ const DashboardLayout = () => {
     );
   }
 
-  if (!getUser) {
-    return null;
-  }
-
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="w-full flex">

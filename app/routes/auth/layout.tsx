@@ -27,10 +27,6 @@ const AuthLayout = () => {
     );
   }
 
-  if (getUser) {
-    return null;
-  }
-
   return (
     <div className="w-full h-screen flex lg:flex-row flex-col">
       <div className="w-full lg:max-w-[50%] h-screen bg-white z-20 px-5 sm:px-[50px] py-20 overflow-y-auto">
