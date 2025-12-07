@@ -1,15 +1,213 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+/* table */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  /* margin-bottom: 1rem; */
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+td,
+th {
+  border: none;
+  text-align: left;
+  white-space: nowrap;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+th {
+  padding: 12px 40px;
+  border-bottom: 1px solid #eeeeee;
+  height: 44px;
+  color: #b5b7c0;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+td {
+  padding: 16px 40px;
+  border-bottom: 1px solid #eeeeee;
+  height: 72px;
+  color: #292d32;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* PAGINATOR */
+.paginator {
+  width: 100%;
+  margin: 20px 0px 15px 0px;
+  position: sticky;
+  left: 0;
+}
+
+.paginator ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginator ul li a {
+  text-decoration: none;
+  color: #404b52;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 7px;
+  padding: 6px 10px;
+  height: 24px;
+  width: 25px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  border: 1px solid #eeeeee;
+}
+
+.paginator ul li a.active {
+  background: var(--color-brand-primary);
+  color: white;
+}
+
+.paginator ul li.disabled {
+  pointer-events: none;
+}
+
+.paginator ul li.previous.disabled a {
+  pointer-events: none;
+  padding: 6px 0px;
+  height: 24px;
+  width: 25px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  border: 1px solid #eeeeee;
+}
+
+.paginator ul li.next.disabled a {
+  pointer-events: none;
+  padding: 6px 0px;
+  height: 24px;
+  width: 25px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  border: 1px solid #eeeeee;
+}
+
+.paginator ul li.previous a {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin-right: 13px;
+  padding: 6px 0px;
+  height: 24px;
+  width: 25px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  border: 1px solid #eeeeee;
+}
+
+.paginator ul li.next a {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin-left: 10px;
+  padding: 6px 0px;
+  height: 24px;
+  width: 25px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  border: 1px solid #eeeeee;
+}
+
+/* nav and mobile-nav */
+.mobile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1);
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.mobile-wrapper {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  transform-origin: right center;
+  transition:
+    all 900ms ease-in-out,
+    opacity 500ms linear,
+    visibility 500ms ease-in;
+}
+
+@theme {
+  --color-brand-primary: #5932ea;
+  --color-highlight: #ff964d;
+  --color-red: #ef4444;
+  --color-black-100: #d6d6d6;
+  --color-error-text: #d92d20;
+  --color-black-shade-200: #b1b1b1;
+  --color-error: #ff0f00;
+  --color-black-400: #777777;
+  --color-black-100: #d6d6d6;
+
+  /* utilities */
+  --color-border-secondary: #dedede;
+
+  --font-poppins-regular: poppins-regular, sans-serif;
+  --font-poppins-medium: poppins-medium, sans-serif;
+  --font-poppins-semibold: poppins-semibold, sans-serif;
+  --font-poppins-bold: poppins-bold, sans-serif;
+}
+
+@font-face {
+  font-family: "poppins-regular";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppins-medium";
+  src: url("./assets/fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppins-semibold";
+  src: url("./assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppins-bold";
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "poppins-regular", sans-serif;
+}
+
+/* mobile responsive */
+
+@media (max-width: 768px) {
+  td {
+    padding: 16px 0px;
   }
 }

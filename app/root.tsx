@@ -9,6 +9,9 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { Toaster } from "react-hot-toast";
+import QueryProvider from "./providers/query-providers";
+import { ContextProvider } from "./store/app-context";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -36,13 +39,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <QueryProvider>
+      <ContextProvider>
+        <Outlet />
+      </ContextProvider>
+    </QueryProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
