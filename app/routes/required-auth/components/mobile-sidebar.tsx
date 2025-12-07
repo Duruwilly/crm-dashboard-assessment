@@ -12,12 +12,14 @@ import DummyAvi from "~/assets/images/dummy-avi.png";
 import { useLogout } from "~/lib/hooks/use-logout";
 
 const MobileSidebar = ({ toggle }: { toggle: () => void }) => {
-  const { handleLogout } = useLogout();
   const {
     isOpen: isOpenLogout,
     onClose: onCloseLogout,
     onOpen: onOpenLogout,
   } = useDisclosure();
+  const { handleLogout, isLoading } = useLogout({
+    onClosePrompt: onCloseLogout,
+  });
 
   return (
     <>
@@ -123,9 +125,10 @@ const MobileSidebar = ({ toggle }: { toggle: () => void }) => {
             <Button
               variant="danger"
               text="Logout"
+              isLoading={isLoading}
+              disabled={isLoading}
               onClick={() => {
                 handleLogout();
-                onCloseLogout();
               }}
               padding="10px"
             />

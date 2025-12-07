@@ -37,8 +37,8 @@ const Login = () => {
     setIsLoading(true);
     LocalStorageHelpers.set(LocalStorageKeys.user_data, { email: data.email });
     setTimeout(() => {
-      navigate(APP_ROUTES.PRODUCT);
       setIsLoading(false);
+      navigate(APP_ROUTES.PRODUCT);
     }, 1000);
   };
 

@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router";
+import { NavLink } from "react-router";
 import ArrowRight from "~/assets/svg/icons/arrow-right";
 import DashboardLogo from "~/assets/svg/svgs/dashboard-logo";
 import Button from "~/components/ui/button";
@@ -8,18 +8,17 @@ import DummyAvi from "~/assets/images/dummy-avi.png";
 import ArrowDown from "~/assets/svg/icons/arrow-down";
 import { useDisclosure } from "~/lib/hooks/use-disclosure";
 import Modal from "~/components/ui/modal";
-import { LocalStorageHelpers } from "~/lib/helpers/local-storage-helpers";
-import { LocalStorageKeys } from "~/lib/constants/app";
-import { APP_ROUTES } from "~/lib/constants/app-routes";
 import { useLogout } from "~/lib/hooks/use-logout";
 
 const Sidebar = () => {
-  const { handleLogout } = useLogout();
   const {
     isOpen: isOpenLogout,
     onClose: onCloseLogout,
     onOpen: onOpenLogout,
   } = useDisclosure();
+  const { handleLogout, isLoading } = useLogout({
+    onClosePrompt: onCloseLogout,
+  });
 
   return (
     <>
@@ -115,9 +114,10 @@ const Sidebar = () => {
             <Button
               variant="danger"
               text="Logout"
+              isLoading={isLoading}
+              disabled={isLoading}
               onClick={() => {
                 handleLogout();
-                onCloseLogout();
               }}
               padding="10px"
             />
