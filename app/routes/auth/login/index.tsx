@@ -23,9 +23,6 @@ const Login = () => {
 
   const {
     register,
-    watch,
-    setValue,
-    setError,
     formState: { errors },
     handleSubmit,
   } = useForm<TLogin>({

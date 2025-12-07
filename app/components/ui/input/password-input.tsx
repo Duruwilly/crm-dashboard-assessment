@@ -18,7 +18,7 @@ const InputPassword = forwardRef<HTMLInputElement, InputPasswordProps>(
         <Label label={label ?? ""} />
         <div
           className={`relative w-full pl-4 
-          py-2.5! border-[0.6px] flex items-center justify-start  ${
+          py-2.5! border flex items-center justify-start  ${
             !error ? "border-black-100" : "border-red-500"
           } rounded-xl focus-within:border-brand-primary
             focus-within:shadow-[0_0_4px_4px_rgba(127,17,224,0.16)] bg-[#FAFAFC] px-4`}
@@ -27,7 +27,7 @@ const InputPassword = forwardRef<HTMLInputElement, InputPasswordProps>(
             type={show ? "text" : "password"}
             ref={ref}
             {...rest}
-            className={`bg-transparent text-base placeholder:text-black-shade-200 outline-none flex-1`}
+            className={`bg-transparent text-base placeholder:text-[#B5B7C0] outline-none flex-1`}
           />
           <div
             className="shrink-0 cursor-pointer"

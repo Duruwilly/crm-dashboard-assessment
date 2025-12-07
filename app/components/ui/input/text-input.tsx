@@ -18,7 +18,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
         <div
           className={classNames(
-            `w-full flex items-center gap-2 py-2.5 border
+            `relative w-full flex items-center gap-2 py-2.5 border
             ${!error ? "border-black-100" : "border-red-500"}
             rounded-xl bg-[#FAFAFC]
             focus-within:border-brand-primary
