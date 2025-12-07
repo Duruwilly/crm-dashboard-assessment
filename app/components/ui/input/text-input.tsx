@@ -38,7 +38,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         </div>
 
         {error && (
-          <span className="text-error text-sm">{error}</span>
+          <span className="text-error text-xs">{error}</span>
         )}
       </div>
     );
