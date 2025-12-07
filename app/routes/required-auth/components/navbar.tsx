@@ -30,7 +30,7 @@ const Navbar = () => {
 
         <div className="max-[540px]:w-full">
           <Input
-            className="border-none bg-white shadow-[0_10px_60px_0_rgba(rgba(226,236,249,0.5))]"
+            className="border-none bg-white shadow-[0_10px_60px_0_rgba(226,236,249,0.5)]"
             name="search"
             placeholder="Search"
             preIcon={<SearchIcons />}

@@ -22,7 +22,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="h-screen bg-white flex-col sticky top-0 w-[21%] py-5 hidden min-[950px]:flex shadow-[0_10px_60px_0_rgba(rgba(226,236,249,0.5))]">
+      <div className="h-screen bg-white flex-col sticky top-0 w-[21%] py-5 hidden min-[950px]:flex shadow-[0_10px_60px_0_rgba(226,236,249,0.5)]">
         <div className="grow overflow-y-auto flex flex-col gap-[50px]">
           <div className="flex items-center gap-3.5 mt-5 mx-6 truncate">
             <div className="shrink-0">
